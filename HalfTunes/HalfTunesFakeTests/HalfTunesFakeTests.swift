@@ -61,10 +61,12 @@ class HalfTunesFakeTests: XCTestCase {
     XCTAssertEqual(controllerUnderTest?.searchResults.count, 3, "Didn't parse 3 items from fake response")
   }
   
-  func testPerformanceExample() {
-    // This is an example of a performance test case.
-    self.measure {
-      // Put the code you want to measure the time of here.
+  // Performance
+  func test_StartDownload_Performance() {
+    let track = Track(name: "Waterloo", artist: "ABBA",
+                      previewUrl: "http://a821.phobos.apple.com/us/r30/Music/d7/ba/ce/mzm.vsyjlsff.aac.p.m4a")
+    measure {
+      self.controllerUnderTest?.startDownload(track)
     }
   }
   
