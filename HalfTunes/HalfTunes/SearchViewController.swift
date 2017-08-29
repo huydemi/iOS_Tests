@@ -99,9 +99,9 @@ class SearchViewController: UIViewController {
       print("Error parsing results: \(error.localizedDescription)")
     }
     
-    DispatchQueue.main.async {
-      self.tableView.reloadData()
-      self.tableView.setContentOffset(CGPoint.zero, animated: false)
+    DispatchQueue.main.async { [weak self] in
+      self?.tableView.reloadData()
+      self?.tableView.setContentOffset(CGPoint.zero, animated: false)
     }
   }
   
